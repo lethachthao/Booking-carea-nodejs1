@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display list Users</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<body>
+    Display list Users
+    <table>
+        <tr>
+            <th>email</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>address</th>
+            <th>action</th>
+        </tr>
+        <tr>
+            <% for(var i=0; i < dataTable.length; i++) { %>
+        <tr>
+            <td>
+                <%= dataTable[i].email %>
+            </td>
+            <td>
+                <%= dataTable[i].firstName %>
+            </td>
+            <td>
+                <%= dataTable[i].lastName %>
+            </td>
+            <td>
+                <%= dataTable[i].address %>
+            </td>
+            <td>
+                <a href="/edit-crud?id=<%= dataTable[i].id %>" type="button"
+                    style="cursor: pointer; text-decoration: none; color: black">Edit</a>
+                <a href="/delete-crud?id=<%= dataTable[i].id %>" style="cursor: pointer;" type="">Delete</a>
+            </td>
+        </tr>
+        <% } %>
+            </tr>
+    </table>
+</body>
+
+</html>
